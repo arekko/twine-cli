@@ -5,7 +5,6 @@ const configure = require('../commands/configure')
 
 program
   .version(pkg.version)
-  .parse(process.argv)
 
 program
   .command('consumer')
@@ -13,6 +12,9 @@ program
   .action(async () => {
     await configure.consumer(pkg.name)
   })
+
+program
+  .parse(process.argv)
 
 
 if(!process.argv.slice(2).length) {
